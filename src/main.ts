@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
-import { Orders } from './app/orders/orders';
+import { Orders } from './app/component/orders/orders';
 
 const routes = [
   { path: '/', component: App },

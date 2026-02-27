@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import {Orders} from './orders/orders';
-import {Landing} from './landing/landing';
+import {Orders} from './component/orders/orders';
+import {Landing} from './component/landing/landing';
 
 export const routes: Routes = [
   { path: '', component: Landing},
