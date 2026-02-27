@@ -1,8 +1,11 @@
 import { Component, signal } from '@angular/core';
+import {AppNavbar} from '../app-navbar/app-navbar';
 
 @Component({
   selector: 'app-orders',
-  imports: [],
+  imports: [
+    AppNavbar
+  ],
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })

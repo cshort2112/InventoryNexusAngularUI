@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {AppNavbar} from "../app-navbar/app-navbar";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+    imports: [
+        AppNavbar
+    ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })

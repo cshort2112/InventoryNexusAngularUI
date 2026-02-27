@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {AppNavbar} from "../app-navbar/app-navbar";
 
 @Component({
   selector: 'app-roles',
-  imports: [],
+    imports: [
+        AppNavbar
+    ],
   templateUrl: './roles.html',
   styleUrl: './roles.css',
 })

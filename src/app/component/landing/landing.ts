@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {AppNavbar} from '../app-navbar/app-navbar';
 
 @Component({
   selector: 'app-landing',
-  imports: [],
+  imports: [
+    AppNavbar
+  ],
   templateUrl: './landing.html',
   styleUrl: './landing.css',
 })

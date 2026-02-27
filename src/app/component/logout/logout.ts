@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {AppNavbar} from '../app-navbar/app-navbar';
 
 @Component({
   selector: 'app-logout',
-  imports: [],
+  imports: [
+    AppNavbar
+  ],
   templateUrl: './logout.html',
   styleUrl: './logout.css',
 })
