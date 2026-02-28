@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Luminari Sans, sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.limiter {
+  background: linear-gradient(180deg, #032B43 0%, #000000 100%);
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login100-form-title {
+  line-height: 1.2;
+  text-align: left;
+  width: 100%;
+  display: block;
+  padding-bottom: 2vh;
+  font-size: 2.2rem;
+}
+
+.form-label {
+  font-size: 1.4rem;
+}
+
+.form-group {
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-col-c p-t-40 p-b-20 {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.text-right p-t-13 p-b-23 {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 1vw;
+}
+
+.txt1 {
+  color: #136F63;
+}
+
+.txt2 {
+  color: #3F88C5;
+}
+
+.txt3 {
+  color: #3F88C5;
+}
+
+.wrap-login100 {
+  background-color: rgba(14, 80, 133, 0.37);
+  mso-border-shadow: yes;
+  border-radius: 5px;
+  width: 340px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-evenly;
+  justify-content: space-around;
+  padding: 1vh 2vw;
+}
+
+.input100 {
+  width: 100%;
+  border-radius: 5px;
+  border: 1.5px solid #136F63;
+  padding: 1vh 1vw;
+  margin: 1vh 0;
+  display: block;
+}
+
+.container-login100-form-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75%;
+  gap: 1vw;
+  height: 4vh;
+  margin: 0 auto;
+}
+
+.login100-form-btn {
+  color: #FFFFFF;
+  line-height: 1.2;
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.text-danger {
+  padding: 0;
+  color: #D00000;
+  font-size: 1em;
+}

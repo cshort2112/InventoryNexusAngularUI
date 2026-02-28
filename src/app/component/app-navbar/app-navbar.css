@@ -1,0 +1,21 @@
+.navWrapper {
+  font-family: 'Inter', sans-serif;
+  background-color: #032B43;
+  align-items: center;
+  justify-content: right;
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  padding-right: 4vw;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+}
+
+.navLink {
+  color: #D00000;
+  text-decoration: none;
+}
