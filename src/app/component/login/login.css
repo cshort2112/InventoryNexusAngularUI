@@ -1,115 +1,154 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Luminari Sans, sans-serif;
-  font-size: 1rem;
-  color: #FFFFFF;
-}
-
-.limiter {
-  background: linear-gradient(180deg, #032B43 0%, #000000 100%);
-  width: 100%;
+.wrapper {
+  font-size: 1.5rem;
+  width: 100vw;
   height: 80vh;
-  margin: 0 auto;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
+}
+
+.form-wrapper {
+  height: 40vh;
+  width: 15vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  background-color: var(--color-surface);
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
 }
 
-.login100-form-title {
-  line-height: 1.2;
-  text-align: left;
-  width: 100%;
-  display: block;
-  padding-bottom: 2vh;
-  font-size: 2.2rem;
-}
-
-.form-label {
-  font-size: 1.4rem;
-}
-
-.form-group {
-  justify-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-col-c p-t-40 p-b-20 {
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
-}
-.text-right p-t-13 p-b-23 {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  gap: 1vw;
-}
-
-.txt1 {
-  color: #136F63;
-}
-
-.txt2 {
-  color: #3F88C5;
-}
-
-.txt3 {
-  color: #3F88C5;
-}
-
-.wrap-login100 {
-  background-color: rgba(14, 80, 133, 0.37);
-  mso-border-shadow: yes;
-  border-radius: 5px;
-  width: 340px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-content: space-evenly;
-  justify-content: space-around;
-  padding: 1vh 2vw;
-}
-
-.input100 {
-  width: 100%;
-  border-radius: 5px;
-  border: 1.5px solid #136F63;
-  padding: 1vh 1vw;
-  margin: 1vh 0;
-  display: block;
-}
-
-.container-login100-form-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 75%;
-  gap: 1vw;
-  height: 4vh;
-  margin: 0 auto;
-}
-
-.login100-form-btn {
-  color: #FFFFFF;
-  line-height: 1.2;
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
   text-align: center;
-  width: 30%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 auto;
 }
 
-.text-danger {
-  padding: 0;
-  color: #D00000;
-  font-size: 1em;
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.username-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.username-label {
+  font-size: 1.2rem;
+}
+
+.username-field {
+  font-size: 1.2rem;
+  border-radius: var(--border-radius);
+}
+
+.password-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.password-label {
+  font-size: 1.2rem;
+}
+
+.password-field {
+  font-size: 1.2rem;
+  border-radius: var(--border-radius);
+}
+
+.forgot-password {
+  width: fit-content;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+
+.forgot-password::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary-hover);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.forgot-password:hover::after,
+.forgot-password:focus::after {
+  transform: scaleX(1);
+}
+
+.forgot-password:hover,
+.forgot-password:focus {
+  color: var(--color-primary-hover);
+}
+
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+
+}
+
+.login-button {
+  position: relative;
+  font-size: 1.2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-accent-2);
+  color: var(--color-background);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  isolation: isolate;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-primary-hover);
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: transform 0.45s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.login-button:hover::before {
+  transform: scale(1.5);
+}
+
+.login-button:hover {
+  color: white;
+}
+
+.login-button:disabled,
+.login-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  background-color: #a0a0a0;
+  color: #ffffff;
+}
+
+.login-button:disabled::before,
+.login-button[disabled]::before {
+  transform: scale(0) !important;
+  background-color: transparent;
 }

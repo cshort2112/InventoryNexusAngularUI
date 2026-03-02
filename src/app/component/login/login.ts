@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from '../../services/login/login.service';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {User} from '../../model/user.model';
 
 @Component({
@@ -10,7 +10,8 @@ import {User} from '../../model/user.model';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',
@@ -18,26 +19,43 @@ import {User} from '../../model/user.model';
 export class Login implements OnInit {
   username: string = "";
   password: string = "";
-  private model: User;
+
+  loginError: string | null = null;
 
   ngOnInit() {
-
   }
 
   constructor(private loginService: LoginService,
-              private router: Router,
-              user: User) {
-    this.model = user;
+              private router: Router) {
   }
 
-  validateUser(loginFrom: NgForm) {
-    this.model.username = this.username;
-    this.model.password = this.password;
-    this.loginService.validateLoginDetails(this.model).subscribe(
-      responseData => {
-        this.model = <any> responseData.body;
-        window.sessionStorage.setItem("userdetails",JSON.stringify(this.model));
-        this.router.navigate(['dashboard']);
+  validateUser(form: NgForm) {
+    this.loginError = null;
+
+    if (form.invalid) {
+      form.control.markAsTouched();
+      return;
+    }
+
+    const user = new User();
+    user.username = this.username;
+    user.password = this.password;
+    this.loginService.validateLoginDetails(user).subscribe({
+        next: (response) => {
+          // success
+          const userData = response.body as User;
+          window.sessionStorage.setItem("userdetails", JSON.stringify(userData));
+          this.router.navigate(['dashboard']);
+        },
+        error: (error) => {
+          if (error.status === 401 || error.status === 400) {
+            this.loginError = "Invalid username or password";
+          } else if (error.status === 0) {
+            this.loginError = "Server is not responding";
+          } else {
+            this.loginError = error.error?.message || "Login attempt failed, please try again."
+          }
+        }
       }
     );
   }

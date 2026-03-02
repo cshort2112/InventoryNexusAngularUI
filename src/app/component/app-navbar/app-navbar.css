@@ -1,21 +1,45 @@
 .navWrapper {
-  font-family: 'Inter', sans-serif;
-  background-color: #032B43;
-  align-items: center;
-  justify-content: right;
-  display: flex;
-  flex-direction: row;
-  height: 5vh;
-  padding-right: 4vw;
+  font-size: 1.2rem;
+  width: 100vw;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  padding: 1rem;
 }
 
 .navLinks {
   display: flex;
-  flex-direction: row;
-  gap: 2vw;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-right: 5rem;
 }
 
 .navLink {
-  color: #D00000;
+  position: relative;
   text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary-hover);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+  transform: scaleX(1);
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--color-primary-hover);
 }

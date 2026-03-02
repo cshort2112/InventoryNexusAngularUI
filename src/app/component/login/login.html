@@ -1,25 +1,40 @@
 <div class="wrapper">
-  <form (ngSubmit)="loginForm.valid && validateUser(loginForm)" class="form-wrapper" #loginForm="ngForm">
+  <form (ngSubmit)="validateUser(loginForm)" #loginForm="ngForm" class="form-wrapper">
     <span class="login-title">Log In</span>
-    <div class="username-wrapper">
-      <label class="username-label">Username:</label>
-      <input id="username"
-             name="username"
-             type="text"
-             placeholder="Username..."
-             class="username-field"
-             [(ngModel)]="username"
-      >
+    <div class="login-wrapper">
+      <div class="username-wrapper">
+        <label for="username" class="username-label">Username:</label>
+        <input id="username"
+               name="username"
+               type="text"
+               placeholder="Username..."
+               class="username-field"
+               [(ngModel)]="username"
+               required
+        />
+      </div>
+      <div class="password-wrapper">
+        <label for="password" class="password-label">Password:</label>
+        <input id="password"
+               name="password"
+               type="password"
+               placeholder="Password..."
+               class="password-field"
+               [(ngModel)]="password"
+               required
+        />
+        @if (loginForm.submitted && loginError) {
+          <div class="error-message">
+            {{ loginError }}
+          </div>
+        }
+      </div>
+      <div class="forgot-password">
+        <a routerLink="/forgot-password">Forgot Password?</a>
+      </div>
     </div>
-    <div class="password-wrapper">
-      <label class="password-label">Password:</label>
-      <input id="password"
-             name="password"
-             type="password"
-             placeholder="Password..."
-             class="password-field"
-             [(ngModel)]="password"
-      >
-    </div>
+
+
+    <button type="submit" class="login-button" [disabled]="loginForm.invalid && loginForm.submitted">Sign In</button>
   </form>
 </div>

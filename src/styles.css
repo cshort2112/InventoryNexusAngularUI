@@ -1,8 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary:       #E07A5F;
+  --color-accent-1:      #FF6F61;
+  --color-accent-2:      #DAA520;
+  --color-background:    #FDFBF7;
+  --color-surface: #F5E8D8;
+  --color-primary-hover: #FF4500;
+
+  --border-radius: .5rem;
+  --shadow-sm: 0 1.125rem 1.25rem rgba(0, 0, 0, 0.14);
+}
+
+.dark {
+  --color-primary: #F5E8D8;
+  --color-accent-1: #FF6F61;
+  --color-accent-2: #DAA520;
+  --color-background: #1C1C1C;
+  --color-primary-hover: #FF4500;
+}
+
 body {
   font-family: inter, sans-serif;
   font-weight: 300;
   font-size: 1rem;
   letter-spacing: 0.03rem;
-  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
 }
