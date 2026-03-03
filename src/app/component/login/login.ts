@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from '../../services/login/login.service';
 import {Router, RouterLink} from '@angular/router';
-import {User} from '../../model/user.model';
+import {User} from '../../model/shared/user.model';
 
 @Component({
   selector: 'app-login',

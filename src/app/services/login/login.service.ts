@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../../model/user.model';
+import {User} from '../../model/shared/user.model';
 import {environment} from '../../../environments/environment';
 import {AppConstants} from '../../constants/app.constants';
 
