@@ -3,10 +3,10 @@
   width: 100vw;
   background-color: var(--color-background);
   color: var(--color-primary);
-  padding: 1rem;
 }
 
 .navLinks {
+  padding: 1rem;
   display: flex;
   gap: 1rem;
   justify-content: flex-end;

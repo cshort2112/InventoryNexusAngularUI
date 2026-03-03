@@ -1,7 +1,8 @@
 .wrapper {
+  flex: 1;
   font-size: 1.5rem;
   width: 100vw;
-  height: 80vh;
+  min-height: 100%;
   background-color: var(--color-background);
   color: var(--color-primary);
   display: flex;
