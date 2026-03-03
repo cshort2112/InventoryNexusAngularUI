@@ -1,20 +1,146 @@
-
 <nav class="navWrapper">
   <div class="navLinks">
-    <a routerLink="/" class="navLink">Home</a>
-    <div class="navLink dropdown-wrapper">
-      <a routerLink="/orders" class="navLink">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="navLink">
+      Home
+    </a>
+    <a
+      routerLink="#"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="navLink">
+      About
+    </a>
+    <div class="dropdown-wrapper">
+      <a routerLink="/orders"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         class="navLink dropdown-button">
         Orders
       </a>
       <div class="dropdown-content">
-        <a routerLink="/orders?status=unfulfilled" class="dropdown-item">Unfulfilled</a>
-        <a routerLink="/orders?status=fulfilled"    class="dropdown-item">Fulfilled</a>
-        <a routerLink="/orders?status=awaiting"     class="dropdown-item">Awaiting Shipment</a>
-        <a routerLink="/orders?status=shipped"      class="dropdown-item">Shipped</a>
-        <a routerLink="/orders?status=backordered"  class="dropdown-item">Backordered</a>
+        <div class="row">
+          <div class="column">
+            <a
+              routerLink="/orders?status=unfulfilled"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Unfulfilled
+            </a>
+            <a
+              routerLink="/orders?status=fulfilled"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Fulfilled
+            </a>
+            <a
+              routerLink="/orders?status=awaiting"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Awaiting Shipment
+            </a>
+            <a
+              routerLink="/orders?status=shipped"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Shipped
+            </a>
+            <a
+              routerLink="/orders?status=backordered"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Back-ordered
+            </a>
+          </div>
+          <div class="column">
+            <a
+              routerLink="/orders?created=Today"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Today
+            </a>
+            <a
+              routerLink="/orders?created=last-2"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+               class="dropdown-item">
+              Last 2 Days
+            </a>
+            <a
+              routerLink="/orders?created=last-3"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Last 3 Days
+            </a>
+            <a
+              routerLink="/orders?created=last-7"
+              class="dropdown-item"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">
+              Last Week
+            </a>
+            <a
+              routerLink="/orders?created=last-30"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Last Month
+            </a>
+          </div>
+          <div class="column">
+            <a
+              routerLink="/orders?flag=high-priority"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              High Priority
+            </a>
+            <a
+              routerLink="/orders?flag=on-hold"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              On Hold
+            </a>
+            <a
+              routerLink="/orders?flag=stock-issues"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              Stock Issues
+            </a>
+            <a
+              routerLink="/orders?flag=rma"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="dropdown-item">
+              RMA
+            </a>
+            <a
+              routerLink="/orders?flag=high-value"
+              class="dropdown-item">
+              High Value
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-
-    <a routerLink="/login" class="navLink">Login</a>
+    <a
+      routerLink="/login"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="navLink">
+      Login
+    </a>
   </div>
 </nav>
