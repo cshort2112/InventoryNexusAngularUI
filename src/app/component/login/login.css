@@ -12,7 +12,7 @@
 
 .form-wrapper {
   height: 40vh;
-  width: 15vw;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -66,16 +66,19 @@
   border-radius: var(--border-radius);
 }
 
-.forgot-password {
+.forgot-password-wrapper {
   width: fit-content;
   position: relative;
-  text-decoration: none;
-  color: inherit;
   font-size: 1rem;
 }
 
+.forgot-password {
+  text-decoration: none;
+  color: inherit;
+}
 
-.forgot-password::after {
+
+.forgot-password-wrapper::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -88,13 +91,13 @@
   transition: transform 0.35s ease;
 }
 
-.forgot-password:hover::after,
-.forgot-password:focus::after {
+.forgot-password-wrapper:hover::after,
+.forgot-password-wrapper:focus::after {
   transform: scaleX(1);
 }
 
-.forgot-password:hover,
-.forgot-password:focus {
+.forgot-password-wrapper:hover,
+.forgot-password-wrapper:focus {
   color: var(--color-primary-hover);
 }
 

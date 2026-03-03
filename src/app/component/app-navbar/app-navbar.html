@@ -1,7 +1,20 @@
+
 <nav class="navWrapper">
   <div class="navLinks">
     <a routerLink="/" class="navLink">Home</a>
-    <a routerLink="/orders" class="navLink">Orders</a>
+    <div class="navLink dropdown-wrapper">
+      <a routerLink="/orders" class="navLink">
+        Orders
+      </a>
+      <div class="dropdown-content">
+        <a routerLink="/orders?status=unfulfilled" class="dropdown-item">Unfulfilled</a>
+        <a routerLink="/orders?status=fulfilled"    class="dropdown-item">Fulfilled</a>
+        <a routerLink="/orders?status=awaiting"     class="dropdown-item">Awaiting Shipment</a>
+        <a routerLink="/orders?status=shipped"      class="dropdown-item">Shipped</a>
+        <a routerLink="/orders?status=backordered"  class="dropdown-item">Backordered</a>
+      </div>
+    </div>
+
     <a routerLink="/login" class="navLink">Login</a>
   </div>
 </nav>
