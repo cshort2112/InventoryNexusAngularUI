@@ -1,0 +1,91 @@
+.wrapper {
+  flex-shrink: 0;
+  width: 100vw;
+  background: linear-gradient(var(--color-background), var(--color-shadow));
+  color: var(--color-primary);
+  flex-grow: inherit;
+}
+
+.column-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  width: 25vw;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.middle-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary-hover);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.link:hover::after,
+.navLink:focus::after {
+  transform: scaleX(1);
+}
+
+.link:hover,
+.link:focus {
+  font-weight: bold;
+  color: var(--color-primary-hover);
+}
