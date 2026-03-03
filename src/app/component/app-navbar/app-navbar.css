@@ -1,9 +1,17 @@
 .navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   font-size: 1.2rem;
   width: 100vw;
   background-color: var(--color-background);
   color: var(--color-primary);
+}
+
+.logo {
+  margin: 0 1rem;
 }
 
 .navLinks {
