@@ -19,8 +19,8 @@ export class About implements OnInit {
 
   fetchMessageFromOtherSide() {
     this.aboutService.fetchAbout().subscribe({
-      next: (data) => {
-        this.messageFromOtherSide = data.toString() ?? 'No message from other side';
+      next: (response) => {
+        this.messageFromOtherSide = response.body?.toString() ?? 'No message from other side';
       },
       error: (error) => {
         console.error('Error fetching message from other side:', error);

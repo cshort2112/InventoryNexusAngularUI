@@ -11,6 +11,6 @@ export class AboutService {
   }
 
   fetchAbout() {
-    return this.http.get(environment.rooturl + AppConstants.ABOUT_API_URL, {observe: 'response'});
+    return this.http.get(environment.rooturl + AppConstants.ABOUT_API_URL, {observe: 'response', responseType: 'text'});
   }
 }
