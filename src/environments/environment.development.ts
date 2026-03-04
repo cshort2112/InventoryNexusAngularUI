@@ -1,4 +1,4 @@
-export const environmentDevelopment = {
+export const environment = {
   production: false,
-  rooturl: 'https://localhost:8080'
+  rooturl: 'http://localhost:8080'
 }
