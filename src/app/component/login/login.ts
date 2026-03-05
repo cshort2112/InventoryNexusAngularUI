@@ -4,6 +4,7 @@ import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from '../../services/login/login.service';
 import {Router, RouterLink} from '@angular/router';
 import {User} from '../../model/shared/user.model';
+import {getCookie} from 'typescript-cookie';
 
 @Component({
   selector: 'app-login',
@@ -43,8 +44,11 @@ export class Login implements OnInit {
     this.loginService.validateLoginDetails(user).subscribe({
         next: (response) => {
           // success
+          console.log(response);
           const userData = response.body as User;
           window.sessionStorage.setItem("userdetails", JSON.stringify(userData));
+          let xsrf = getCookie("XSRF-TOKEN")!;
+          window.sessionStorage.setItem("XSRF-TOKEN", xsrf);
           this.router.navigate(['dashboard']);
         },
         error: (error) => {
