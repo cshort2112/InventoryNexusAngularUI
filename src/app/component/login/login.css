@@ -49,6 +49,8 @@
 .username-field {
   font-size: 1.2rem;
   border-radius: var(--border-radius);
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
 }
 
 .password-wrapper {
@@ -64,6 +66,8 @@
 .password-field {
   font-size: 1.2rem;
   border-radius: var(--border-radius);
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
 }
 
 .forgot-password-wrapper {
