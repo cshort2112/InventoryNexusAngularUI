@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
 import {ContactService} from '../../services/contact/contact.service';
 import {Router} from '@angular/router';
@@ -23,7 +23,7 @@ export class ContactForm implements OnInit {
   errorMessage: string = '';
 
   constructor(private contactService: ContactService,
-              private router: Router) {
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -50,6 +50,7 @@ export class ContactForm implements OnInit {
         next: (createdContact: Contact) => {
           this.messageId = createdContact.id;
           this.messageSent = true;
+          this.changeDetectorRef.detectChanges();
         },
         error: (error) => {
           if (error.status === 0) {
@@ -61,6 +62,7 @@ export class ContactForm implements OnInit {
           } else {
             this.errorMessage = "An unexpected error occurred, please try again."
           }
+          this.changeDetectorRef.detectChanges();
         }
       })
     }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AboutService} from '../../services/about/about.service';
 
 @Component({
@@ -14,16 +14,19 @@ export class About implements OnInit {
     this.fetchMessageFromOtherSide();
   }
 
-  constructor(private aboutService: AboutService) {
+  constructor(private aboutService: AboutService,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   fetchMessageFromOtherSide() {
     this.aboutService.fetchAbout().subscribe({
       next: (response) => {
         this.messageFromOtherSide = response.body?.toString() ?? 'No message from other side';
+        this.changeDetectorRef.detectChanges();
       },
       error: (error) => {
         console.error('Error fetching message from other side:', error);
+        this.changeDetectorRef.detectChanges()
       },
     })
   }
