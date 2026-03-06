@@ -1,5 +1,5 @@
 <div class="contact-wrapper">
-  <div class="contact-title">Contact Us</div>
+  <div class="contact-title">ContactForm Us</div>
   <div class="contact-body">
     <div class="company-information">
       <div class="contact-info">
@@ -15,7 +15,7 @@
         <span class="subtext">123 Main St, New York, NY 10030</span>
       </div>
     </div>
-    <form ngForm="ngForm" class="contact-form">
+    <form (ngSubmit)="sendContact(contactForm)" #contactForm="ngForm" class="contact-form">
       <div class="form-fields">
         <input
           type="text"
@@ -56,7 +56,7 @@
           Your message has been sent successfully! Message ID: {{ messageId }}
         </div>
       } @else {
-        <button type="submit" class="submit-button">Send Message</button>
+        <button type="submit" class="submit-button" [disabled]="error || (contactForm.submitted && contactForm.invalid)" >Send Message</button>
       }
 
     </form>

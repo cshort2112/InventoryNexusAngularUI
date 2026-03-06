@@ -9,12 +9,12 @@ import {AppConstants} from '../../constants/app.constants';
 })
 
 export class LoginService {
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
 
   }
 
   validateLoginDetails(user: User) {
     window.sessionStorage.setItem('userdetails', JSON.stringify(user));
-    return this.http.get(environment.rooturl + AppConstants.LOGIN_API_URL, {observe: 'response', withCredentials: true});
+    return this.httpClient.get(environment.rooturl + AppConstants.LOGIN_API_URL, {observe: 'response', withCredentials: true});
   }
 }
