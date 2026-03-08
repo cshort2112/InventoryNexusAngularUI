@@ -154,5 +154,18 @@
       class="navLink">
       Login
     </a>
+    <button
+    (click)="themeService.toggle()"
+    aria-label="Toggle dark mode"
+    class="theme-toggle"
+    title="Toggle theme"
+  >
+    @if (themeService.isDark()) {
+      ☀️
+    } @else {
+      🌙
+    }
+  </button>
   </div>
+
 </nav>

@@ -2,7 +2,7 @@
 :root {
 
   --color-primary: #9DCBBA;
-  --color-primary-alt: #C8C0C3;
+  --color-primary-alt: #9de1c8;
   --color-secondary: #2E282A;
   --color-accent: #EF3E36;
   --color-accent-2: #F5BB00;
@@ -12,15 +12,19 @@
   --shadow-sm: 0 1.125rem 1.25rem #2E282AFF;
   --shadow-lg: 0 5.125rem 5.25rem #2E282AFF;
   --font: 'Inter', sans-serif;
+
+  color-scheme: light;
 }
 
 .dark {
   --color-primary: #1F2E28;
-  --color-primary-alt: #2E282A;
-  --color-secondary: #C8C0C3;
+  --color-primary-alt: #1f3232;
+  --color-secondary: #9DCBBA;
   --color-accent: #B80C09;
   --color-accent-2: #E98A15;
   --color-primary-hover: #226CE0;
+
+  color-scheme: dark;
 }
 
 body {

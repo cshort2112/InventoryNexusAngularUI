@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
+import {ThemeService} from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,5 +14,7 @@ import {NgOptimizedImage} from '@angular/common';
   styleUrl: './app-navbar.css',
 })
 export class AppNavbar {
+
+  themeService = inject(ThemeService);
 
 }

@@ -132,3 +132,18 @@
   transform-origin: center;
   transition: transform 0.35s ease;
 }
+
+.theme-toggle {
+  padding: 0 2rem;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dark .theme-toggle {
+
+  transform: rotate(180deg);
+}
