@@ -1,90 +1,97 @@
-<div class="orders-wrapper">
-  <h1>Orders</h1>
+<div class="component-wrapper">
+    @if (isLoading) {
+        <div class="loading-spinner">
+            <mat-spinner diameter="50"></mat-spinner>
+        </div>
+    } @else if (dataSource.data.length === 0) {
+        <div class="no-orders-message">No orders found.</div>
+    } @else {
 
-  @if (isLoading) {
-    <mat-spinner></mat-spinner>
-  } @else if (dataSource.data.length === 0) {
-    <p>No orders found.</p>
-  } @else {
-    <table mat-table [dataSource]="dataSource" class="table-wrapper">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let order"> {{order.id}}</td>
-      </ng-container>
+        <div class="table-wrapper">
+            <table mat-table
+                   [dataSource]="dataSource" multiTemplateDataRows
+                   class="mat-elevation-z8">
+                @for (column of displayedColumns; track column) {
+                    <ng-container matColumnDef="{{column}}">
+                        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+                    </ng-container>
+                }
+                <ng-container matColumnDef="expand">
+                    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button
+                                matIconButton
+                                aria-label="expand row"
+                                (click)="toggleExpandedOrder(element); $event.stopPropagation()"
+                                class="example-toggle-button"
+                                [class.example-toggle-button-expanded]="isExpanded(element)">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
 
-      <ng-container matColumnDef="creationTimestamp">
-        <th mat-header-cell *matHeaderCellDef> Creation Timestamp </th>
-        <td mat-cell *matCellDef="let order"> {{order.timestamp}} </td>
-      </ng-container>
 
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let order"> {{order.status}} </td>
-      </ng-container>
+                <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumnsExpanded.length">
+                        <div class="example-element-detail-wrapper"
+                             [class.example-element-detail-wrapper-expanded]="isExpanded(element)">
+                            <div class="example-element-detail">
+                                <span class="order-details-header">Order Details</span>
+                                <table class="order-detail-items-table">
+                                    <thead>
+                                    <tr class="order-detail-item-table-row">
+                                        <th class="order-detail-item">Item</th>
+                                        <th class="order-detail-sku">SKU</th>
+                                        <th class="order-detail-qty">Quantity</th>
+                                        <th class="order-detail-price">Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (item of element.orderItems; track item) {
+                                            <tr class="order-detail-item-table-row">
+                                                <td class="order-detail-item">{{ item.title }}</td>
+                                                <td class="order-detail-sku">{{ item.sku }}</td>
+                                                <td class="order-detail-qty">{{ item.quantity }}</td>
+                                                <td class="order-detail-price">{{ item.price }}</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
 
-      <ng-container matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef> State </th>
-        <td mat-cell *matCellDef="let order"> {{order.state}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="marketplace">
-        <th mat-header-cell *matHeaderCellDef> Marketplace </th>
-        <td mat-cell *matCellDef="let order"> {{order.marketplace}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef> Total </th>
-        <td mat-cell *matCellDef="let order"> {{order.total}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Details </th>
-        <td mat-cell *matCellDef="let order">
-          <button mat-icon-button (click)="toggleExpandedOrder(order)" aria-label="Toggle order details">
-            <mat-icon> {{expandedOrder?.id === order.id ? 'expand_less' : 'expand more' }} </mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-      [class.expanded]="expandedOrder?.id === row.id"
-      (click)="toggleExpandedOrder(row)"></tr>
-
-      <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let order" [attr.colspan]="displayedColumns.length">
-          <div class="expandable-detail" [@detailExpand]="expandedOrder?.id === order.id ? 'expanded' : 'collapsed'">
-            <h4>Order Items</h4>
-
-            @if (order.orderItems?.length > 0) {
-              <table class="nested-table">
-                <thead>
-                <tr>
-                  <th>Creation Timestamp</th>
-                  <th>Title</th>
-                  <th>SKU</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsExpanded"></tr>
+                <tr mat-row *matRowDef="let element; columns: displayedColumnsExpanded;"
+                    class="example-element-row"
+                    [class.example-expanded-row]="isExpanded(element)"
+                    (click)="toggleExpandedOrder(element)">
                 </tr>
-                </thead>
-                <tbody>
-                @for (item of order.orderItems; track item.id) {
-                  <tr>
-                    <td>{{item.creationTimestamp}}</td>
-                    <td>{{item.title}}</td>
-                    <td>{{item.sku}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.price}}</td>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            </table>
+
+        </div>
+    }
+
+</div>
+<!--
+<h2>Order Details</h2>
+              <table class="order-detail-items-table">
+                <tr class="order-detail-item-table-row">
+                  <th class="order-detail-item-table-header">Item</th>
+                  <th class="order-detail-item-table-header">SKU</th>
+                  <th class="order-detail-item-table-header">Quantity</th>
+                  <th class="order-detail-item-table-header">Price</th>
+                </tr>
+                @for (item of element.orderItems; track item) {
+                  <tr class="order-detail-item-table-row">
+                    <td class="order-detail-item-table-cell">{{ item.title }}</td>
+                    <td class="order-detail-item-table-cell">{{ item.sku }}</td>
+                    <td class="order-detail-item-table-cell">{{ item.quantity }}</td>
+                    <td class="order-detail-item-table-cell">{{ item.price }}</td>
                   </tr>
                 }
-                </tbody>
               </table>
-            } @else {
-              <p>No order items found.</p>
-            }
-          </div>
-        </td>
-      </ng-container>
-    </table>
-  }
-</div>
+-->

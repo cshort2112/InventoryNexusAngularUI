@@ -12,6 +12,6 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   fetchOrders() {
-     return this.http.get<Order[]>(environment.rooturl + AppConstants.ORDERS_API_URL, {observe: 'response', withCredentials: true});
+     return this.http.get<Order[]>(environment.rooturl + AppConstants.ORDERS_API_URL, {observe: 'body', withCredentials: true});
    }
 }
