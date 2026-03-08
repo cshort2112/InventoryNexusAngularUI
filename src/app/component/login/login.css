@@ -48,6 +48,7 @@
 
 .username-field {
   background-color: var(--color-primary);
+  color: var(--color-secondary);
   font-size: 1.2rem;
   border-radius: var(--border-radius);
   padding: 0.5rem;
@@ -65,6 +66,7 @@
 
 .password-field {
   background-color: var(--color-primary);
+  color: var(--color-secondary);
   font-size: 1.2rem;
   border-radius: var(--border-radius);
   padding: 0.5rem;

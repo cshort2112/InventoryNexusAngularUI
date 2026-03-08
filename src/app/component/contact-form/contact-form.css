@@ -79,6 +79,7 @@
   border-radius: var(--border-radius);
   padding: 0.5rem;
   background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .body-field {
@@ -88,6 +89,7 @@
   padding: 0.5rem;
   resize: none;
   background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .submit-button {
