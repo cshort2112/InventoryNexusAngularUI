@@ -6,8 +6,8 @@
   position: relative;
   font-size: 1.2rem;
   width: 100vw;
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .logo {
@@ -57,7 +57,7 @@
   transform: scaleX(1);
 }
 
-.navLink.active
+.navLink.active,
 .navLink.active:hover{
   color: var(--color-primary-hover);
 }
@@ -84,10 +84,11 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: var(--color-background);
+  background-color: var(--color-secondary);
   min-width: auto;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
   z-index: 1;
   overflow: hidden;
 }
@@ -112,7 +113,6 @@
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: var(--color-shadow);
   color: var(--color-primary-hover);
 }
 

@@ -1,8 +1,8 @@
 .wrapper {
   flex-shrink: 0;
   width: 100vw;
-  background: linear-gradient(var(--color-background), var(--color-shadow));
-  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-accent);
   flex-grow: inherit;
 }
 

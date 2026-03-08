@@ -1,65 +1,69 @@
 <div class="contact-wrapper">
-  <div class="contact-title">ContactForm Us</div>
-  <div class="contact-body">
-    <div class="company-information">
-      <div class="contact-info">
-        <label class="label">Call Us</label>
-        <span class="subtext">+1 (555) 867-5309</span>
-      </div>
-      <div class="contact-info">
-        <label class="label">Email Us</label>
-        <span class="subtext">somecoolemail&#64;gmail.com</span>
-      </div>
-      <div class="contact-info">
-        <label class="label">Address</label>
-        <span class="subtext">123 Main St, New York, NY 10030</span>
-      </div>
-    </div>
-    <form (ngSubmit)="sendContact(contactForm)" #contactForm="ngForm" class="contact-form">
-      <div class="form-fields">
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          [(ngModel)]="name"
-          required
-          class="input-field"
-        >
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          [(ngModel)]="email"
-          required
-          class="input-field"
-        >
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject"
-          [(ngModel)]="subject"
-          required
-          class="input-field"
-        >
-        <textarea
-          type=""
-          name="body"
-          placeholder="Body"
-          [(ngModel)]="body"
-          required
-          class="body-field"
-        ></textarea>
-      </div>
-      @if (messageSent) {
-        <div class="success-message">
-          Your message has been sent successfully! Message ID: {{ messageId }}
+  <div class="contact-form">
+    <div class="contact-title">Contact Us</div>
+    <div class="contact-body">
+      <div class="company-information">
+        <div class="contact-info">
+          <label class="label">Call Us</label>
+          <span class="subtext">+1 (555) 867-5309</span>
         </div>
-      } @else {
-        <button type="submit" class="submit-button" [disabled]="error || (contactForm.submitted && contactForm.invalid)" >Send Message</button>
-      }
+        <div class="contact-info">
+          <label class="label">Email Us</label>
+          <span class="subtext">somecoolemail&#64;gmail.com</span>
+        </div>
+        <div class="contact-info">
+          <label class="label">Address</label>
+          <span class="subtext">123 Main St, New York, NY 10030</span>
+        </div>
+      </div>
+      <form (ngSubmit)="sendContact(contactForm)" #contactForm="ngForm" class="contact-form">
+        <div class="form-fields">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            [(ngModel)]="name"
+            required
+            class="input-field"
+          >
 
-    </form>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            [(ngModel)]="email"
+            required
+            class="input-field"
+          >
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            [(ngModel)]="subject"
+            required
+            class="input-field"
+          >
+          <textarea
+            type=""
+            name="body"
+            placeholder="Body"
+            [(ngModel)]="body"
+            required
+            class="body-field"
+          ></textarea>
+        </div>
+        @if (messageSent) {
+          <div class="success-message">
+            Your message has been sent successfully! Message ID: {{ messageId }}
+          </div>
+        } @else {
+          <button type="submit" class="submit-button"
+                  [disabled]="error || (contactForm.submitted && contactForm.invalid)">Send Message
+          </button>
+        }
 
+      </form>
+
+    </div>
   </div>
 </div>
