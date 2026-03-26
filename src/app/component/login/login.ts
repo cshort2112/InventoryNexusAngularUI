@@ -44,7 +44,7 @@ export class Login implements OnInit {
     this.loginService.validateLoginDetails(user).subscribe({
         next: (response) => {
           // success
-          console.log(response);
+          window.sessionStorage.setItem("Authorization", response.headers.get("Authorization")!);
           const userData = response.body as User;
           window.sessionStorage.setItem("userdetails", JSON.stringify(userData));
           let xsrf = getCookie("XSRF-TOKEN")!;

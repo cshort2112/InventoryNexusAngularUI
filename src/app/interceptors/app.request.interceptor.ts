@@ -16,6 +16,11 @@ export class AppRequestInterceptor implements HttpInterceptor {
     }
     if(this.user && this.user.password && this.user.username) {
       httpHeaders = httpHeaders.append('Authorization', 'Basic ' + btoa(this.user.username + ':' + this.user.password));
+    } else {
+      let authorization = sessionStorage.getItem('Authorization');
+      if(authorization) {
+        httpHeaders = httpHeaders.append('Authorization', authorization);
+      }
     }
 
 
