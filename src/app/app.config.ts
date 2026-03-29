@@ -32,7 +32,7 @@ export const appConfig: ApplicationConfig = {
       },
       initOptions: {
         pkceMethod: 'S256',
-        redirectUri: window.location.href,
+        redirectUri: window.location.origin + window.location.pathname,
         onLoad: 'check-sso',
         checkLoginIframe: false,
         checkLoginIframeInterval: 0

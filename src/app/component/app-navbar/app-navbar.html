@@ -147,7 +147,7 @@
         </div>
       </div>
     </div>
-    @if (!isLoggedIn()) {
+    @if (!authenticated) {
       <a
         (click)="login()"
         class="navLink">
