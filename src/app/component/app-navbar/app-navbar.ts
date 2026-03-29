@@ -59,12 +59,11 @@ export class AppNavbar {
 
     this._user.set(currentUser);
 
-    window.sessionStorage.setItem("userDetails", JSON.stringify(this._user));
+    window.sessionStorage.setItem("userDetails", JSON.stringify(this._user()));
   }
 
   login() {
     this.keycloak.login();
-    this.changeDetectorRef.detectChanges();
   }
 
   logout() {

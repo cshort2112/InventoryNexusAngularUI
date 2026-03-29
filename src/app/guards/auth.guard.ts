@@ -1,6 +1,7 @@
 import {ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateFn, UrlTree} from '@angular/router';
 import {inject} from '@angular/core';
 import {createAuthGuard, AuthGuardData} from 'keycloak-angular';
+import Keycloak from 'keycloak-js';
 
 const isAccessAllowed = async (
   route: ActivatedRouteSnapshot,
@@ -8,12 +9,13 @@ const isAccessAllowed = async (
   authData: AuthGuardData
 ): Promise<boolean | UrlTree> => {
   const {authenticated, grantedRoles} = authData;
-
+  const keycloak = inject(Keycloak);
   const requiredRoles: string[] = route.data?.['roles'] || [];
 
   if (requiredRoles.length > 0) {
     const router = inject(Router);
     if (!authenticated) {
+      await keycloak.login();
       return false;
     }
 
