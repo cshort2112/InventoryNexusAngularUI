@@ -1,22 +1,31 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners, provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
-import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
-
 import { routes } from './app.routes';
-import { AppRequestInterceptor } from './interceptors/app.request.interceptor';
+import {provideKeycloak} from 'keycloak-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
 
-    provideHttpClient(withInterceptorsFromDi()),
-
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppRequestInterceptor,
-      multi: true
-    }
+    provideKeycloak({
+      config: {
+        url: 'http://localhost:8180',
+        realm: 'InventoryNexus',
+        clientId: 'inventorynexuspublic'
+      },
+      initOptions: {
+        pkceMethod: 'S256',
+        redirectUri: window.location.href,
+        onLoad: 'check-sso',
+        checkLoginIframe: false,
+        checkLoginIframeInterval: 0
+      }
+    }),
+    provideZoneChangeDetection({eventCoalescing: true})
 
   ]
 };

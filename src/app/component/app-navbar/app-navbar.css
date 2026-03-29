@@ -28,6 +28,7 @@
   text-decoration: none;
   color: inherit;
   display: inline-block;
+  cursor: pointer;
 }
 
 .navLink::after {

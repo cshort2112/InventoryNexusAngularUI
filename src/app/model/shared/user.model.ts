@@ -14,6 +14,7 @@ export class User {
   public mfaType: string;
   public createdAt?: string;
   public createdBy: string;
+  public authStatus: string;
 
   constructor(id?: string,
               userRoles?: Role[],
@@ -25,7 +26,8 @@ export class User {
               admin?: boolean,
               mfaType?: string,
               createdAt?: string,
-              createdBy?: string) {
+              createdBy?: string,
+              authStatus?: string) {
     this.id = id || '';
     this.userRoles = userRoles || [];
     this.userPrivileges = userPrivileges || [];
@@ -36,6 +38,7 @@ export class User {
     this.admin = admin || false;
     this.mfaType = mfaType || '';
     this.createdAt = createdAt;
-    this.createdBy = createdBy || '';
+    this.createdBy = createdBy || ''
+    this.authStatus = authStatus || '';
   }
 }
